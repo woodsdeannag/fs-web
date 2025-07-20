@@ -1,0 +1,23 @@
+FROM node:10-alpine  # Smaller image than `node:10`
+
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy dependency files first (better caching)
+COPY package*.json ./
+
+# Install Angular CLI and app dependencies
+RUN npm install -g @angular/cli@6.2.9  # Explicit version for Angular 6
+RUN npm install
+
+# Copy app source (excludes files in .dockerignore)
+COPY . .
+
+# Build for production (uncomment if needed)
+# RUN ng build --prod
+
+# Expose Angular default port
+EXPOSE 4200
+
+# Run Angular dev server (with host binding for Docker)
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200", "--disable-host-check"]

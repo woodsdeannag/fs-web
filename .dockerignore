@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build output (if you build locally)
+dist/
+*.js.map
+
+# Environment/config files
+.env
+.env.local
+.env*.local
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Docker files (except Dockerfile)
+docker-compose.yml
+docker-compose.*.yml
